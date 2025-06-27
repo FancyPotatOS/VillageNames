@@ -9,16 +9,26 @@ This is a very straightforward datapack - any 'townsfolk' (villagers and iron go
 
 This name will appear as a subtitle when you approach the group of townsfolk
 
-Keep in mind that townsfolk will 'infected' other townsfolk with their village name, so mixing together two villages will eventually decide on one.
+Keep in mind that townsfolk will 'infect' other townsfolk with their village name, so mixing together two villages will eventually decide on one.
 
 
-### Random details
+Players may toggle displaying village names with the trigger `/trigger village_name_display` 
 
-There are two function tags you can latch onto:
+### API
 
-- towcit:entered_village
-  - Is called when the player is provided the name of a village
-- towcit:exited_village
-  - Is called when the player leaves the village, which enables the message to be displayed again
+There are three function tags you can use:
 
-There are current future plans to have things like static markers when a village is created to mark it, and other function tags available to utilize.
+- `#towcit:entered_village`
+  - This is called when the player is provided the name of a village
+- `#towcit:exited_village`
+  - This is called when the player leaves the village, which enables the message to be displayed again
+- `#towcit:generate_name`
+  - This is called when a villager needs a new village name
+  - You can use this to add your own name generation type
+  - You must do three things:
+    1. Append a _unique identifier_ to the storage list `towcit:data generation_types`
+    2. Create a function connected to this function tag
+      - Within this function, return immediately if the storage `towcit:data generation_type` does not match your _unique identifier_
+    3. Append your generated village name to the storage list `towcit:data names`
+      - If you fail to do so, this will break the datapack! Be safe and ensure SOMETHING will get added!
+

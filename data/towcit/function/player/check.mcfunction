@@ -8,6 +8,7 @@
 #   Context: Player
 #
 
+
 tag @s add towcit.player.check.temp
 
 # If tagged as in a village, but no villagers nearby, then remove the tag

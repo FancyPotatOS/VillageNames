@@ -6,8 +6,8 @@
 #   Input: None
 #
 
+
 function towcit:villager/generate_village_name
 
 function towcit:villager/save_next_id
-
 

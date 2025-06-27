@@ -1,4 +1,5 @@
 
+execute unless data storage towcit:data {generation_type:"towcit:fantasy"} run return 0
 
 # Reset the data
 data modify storage towcit:data fantasy.gen set value {val1:"Blanks", val2:"ville",index:0}
