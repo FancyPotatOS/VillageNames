@@ -27,8 +27,11 @@ There are three function tags you can use:
   - You can use this to add your own name generation type
   - You must do three things:
     1. Append a _unique identifier_ to the storage list `towcit:data generation_types`
+      - Ex. 'towcit:fantasy'
+      - This must be done ONCE only, usually on the very first load of your datapack.
     2. Create a function connected to this function tag
       - Within this function, return immediately if the storage `towcit:data generation_type` does not match your _unique identifier_
+      - Ex: `execute unless data storage towcit:data {generation_type:"towcit:fantasy"} run return 0`
     3. Append your generated village name to the storage list `towcit:data names`
       - If you fail to do so, this will break the datapack! Be safe and ensure SOMETHING will get added!
 
